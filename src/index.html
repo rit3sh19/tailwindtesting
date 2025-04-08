@@ -1,22 +1,82 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en" class="transition-colors duration-300">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-  <link href="./output.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StartupLink</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <style>
+    @keyframes flyIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-100px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fly-in {
+      animation: flyIn 1s ease-out forwards;
+    }
+  </style>
 </head>
-<body >
-  
-  <div class="flex gap-3 overflow-x-auto snap-x mandatory ">
-    <div class="w-110 shrink-0 snap-center  h-30 bg-red-900"></div>
-    <div class="w-110 shrink-0 snap-center  h-30 bg-cyan-900"></div>
-    <div class="w-110 shrink-0 snap-center h-30 bg-green-900"></div>  
-    <div class="w-110 shrink-0 snap-center h-30 bg-blue-900"></div>
-    <div class="w-110 shrink-0 snap-center h-30 bg-red-900"></div>
-    <div class="w-110 shrink-0 snap-center h-30 bg-cyan-900"></div>
-    <div class="w-110 shrink-0 snap-center h-30 bg-green-900"></div>  
-    <div class="w-110 shrink-0 snap-center h-30 bg-blue-900"></div>
-    <div class="w-110 shrink-0 snap-center h-30 bg-green-900"></div> 
+<body class="bg-gradient-to-br from-[#002f4b] to-[#005f73] dark:from-gray-900 dark:to-gray-800 min-h-screen flex flex-col items-center justify-center relative overflow-hidden transition-colors duration-500">
+
+  <!-- Theme Toggle -->
+  <div class="absolute top-10 right-10">
+    <label class="inline-flex items-center cursor-pointer">
+      <input type="checkbox" id="toggleTheme" class="sr-only peer">
+      <div class="w-11 h-6 bg-gray-400 rounded-full peer peer-checked:bg-blue-600 relative transition-all duration-300">
+        <div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full peer-checked:translate-x-5 transition-transform duration-300"></div>
+      </div>
+      <span class="ml-3 text-white dark:text-white text-sm">Dark Mode</span>
+    </label>
   </div>
+
+  <!-- Heading with Fly-in Animation -->
+  <h1 class="text-white dark:text-white text-7xl md:text-8xl font-extrabold drop-shadow-lg mb-12 animate-fly-in">
+    StartupLink
+  </h1>
+
+  <!-- Button -->
+  <button class="px-10 py-4 bg-gradient-to-r from-blue-700 to-indigo-500 text-black dark:text-white text-3xl rounded-full shadow-lg hover:opacity-90 transition">
+    Button
+  </button>
+
+  <!-- Wave -->
+  <svg class="absolute bottom-0 left-0 w-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#00cba9" fill-opacity="1"
+      d="M0,192L80,186.7C160,181,320,171,480,154.7C640,139,800,117,960,117.3C1120,117,1280,139,1360,149.3L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+    </path>
+  </svg>
+
+  <!-- Toggle Script -->
+  <script>
+    const html = document.documentElement;
+    const toggle = document.getElementById('toggleTheme');
+
+    if (localStorage.getItem('theme') === 'dark') {
+      html.classList.add('dark');
+      toggle.checked = true;
+    }
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
+
 </body>
 </html>
