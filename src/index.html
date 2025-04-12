@@ -26,8 +26,15 @@
     }
     .custom-gradient {
     background: linear-gradient(180deg, #002f4b 0%,#090979 50%, #00D4FF 100%);
-    
-   
+    }
+    .cursor {
+    display: inline-block;
+    color: white;
+    animation: blink-caret 1s step-end infinite;
+  }
+
+  @keyframes blink-caret {
+    50% { opacity: 0; }
   }
   </style>
 </head>
@@ -45,8 +52,8 @@
   </div>
 
   <!-- Heading -->
-  <h1 class="text-white dark:text-white text-7xl md:text-8xl font-extrabold drop-shadow-lg mb-8 animate-fly-in">
-    StartupLink
+  <h1  class="text-white dark:text-white text-7xl md:text-8xl font-extrabold drop-shadow-lg mb-8 ">
+    <span id="typingHeading"></span><span class="cursor">|</span>
   </h1>
 
   <!-- Log In / Sign Up Buttons -->
@@ -54,7 +61,7 @@
     <button id="loginBtn" class="px-8 py-3 bg-gradient-to-r from-blue-700 to-indigo-500 text-black dark:text-white text-2xl rounded-full shadow-lg hover:opacity-90 transition">
       Log In
     </button>
-    <button id="signupBtn" class="px-8 py-3 bg-gradient-to-r from-blue-700 to-indigo-500 text-black dark:text-white text-2xl rounded-full shadow-lg hover:opacity-90 transition">
+    <button id="signupBtn" class="px-8 py-3 bg-gradient-to-r from-blue-700 to-indigo-500git text-black dark:text-white text-2xl rounded-full shadow-lg hover:opacity-90 transition">
       Sign Up
     </button>
   </div>
@@ -142,6 +149,19 @@
         loginForm.scrollIntoView({ behavior: 'smooth' });
       });
     };
+    const text = "StartupLink";
+  const heading = document.getElementById("typingHeading");
+  let index = 0;
+
+  function typeNextChar() {
+    if (index < text.length) {
+      heading.innerHTML += text.charAt(index);
+      index++;
+      setTimeout(typeNextChar, 100); // speed
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", typeNextChar);
   </script>
 
 </body>
