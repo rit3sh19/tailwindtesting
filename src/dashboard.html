@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <script src="https://cdn.tailwindcss.com">
+   
+  </script>
+  <script>
+    function logout() {
+      window.location.href = "index.html"; // replace with your actual login/signup page
+    }
+  </script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+  <!-- Navbar -->
+  <nav class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-4 shadow-md">
+    <div class="flex justify-between items-center">
+      <h1 class="text-2xl font-bold">My Dashboard</h1>
+      <button onclick="logout()" class="bg-white text-purple-600 px-4 py-2 rounded hover:bg-purple-100 font-semibold">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Layout -->
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-lg p-6 hidden md:block">
+      <ul class="space-y-4">
+        <li><a href="#" class="block text-purple-600 font-semibold hover:text-purple-800">Overview</a></li>
+        <li><a href="#" class="block hover:text-purple-600">Profile</a></li>
+        <li><a href="#" class="block hover:text-purple-600">Settings</a></li>
+        <li><a href="#" class="block hover:text-purple-600">Analytics</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main content -->
+    <main class="flex-1 p-6">
+      <h2 class="text-xl font-semibold mb-4">Welcome back, User 👋</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <h3 class="text-lg font-bold text-purple-600 mb-2">Total Events</h3>
+          <p class="text-3xl font-semibold">12</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <h3 class="text-lg font-bold text-blue-600 mb-2">Tickets Sold</h3>
+          <p class="text-3xl font-semibold">432</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <h3 class="text-lg font-bold text-green-600 mb-2">Check-ins Today</h3>
+          <p class="text-3xl font-semibold">78</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
